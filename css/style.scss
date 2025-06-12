@@ -1,6 +1,6 @@
 $black: #420084;
 $borderColor:#692097;
-$white: #ffffff;
+$white: #000000;
 
 @mixin main-font {
   font-family: 'Roboto', sans-serif;
@@ -31,7 +31,7 @@ $white: #ffffff;
 body {
   @include main-font;
   color: #43027b;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 .layout_padding {
@@ -90,7 +90,7 @@ body {
   @include secondary-font();
 
   a {
-    color: #aa2e2e;
+    color: #1d1d1d;
     margin-right: 15px;
     font-size: 18px;
   }

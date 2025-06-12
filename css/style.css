@@ -14,6 +14,7 @@ body {
 
 .layout_padding2-top {
   padding-top: 45px;
+  text-align: center;
 }
 
 .layout_padding2-bottom {
@@ -80,7 +81,7 @@ body {
   width: 75px;
   height: 1.2px;
   border: none;
-  background-color: #000000;
+  background-color: #464646;
   margin: 0;
 }
 
@@ -109,7 +110,7 @@ body {
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
   padding: 10px 30px;
-  color: #ffffff;
+  color: #000000;
   text-align: center;
   position: relative;
 }
@@ -182,7 +183,7 @@ a:focus {
 .navbar-brand span {
   font-weight: bold;
   font-size: 24px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .custom_nav-container {
@@ -534,6 +535,7 @@ a:focus {
   border: 1px solid #6c34a1;
   color: #fff;
   margin-top: 25px;
+  text-align: center;
 }
 
 .contact_section button:hover {
