@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TangoNat - Carrito de Cursos</title>
+    <link rel="stylesheet" href="css/carrito-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 TangoNat - Cursos de Tango Gestión y Sueldos</h1>
+            <p class="subtitle">Selecciona los cursos que deseas adquirir</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Sección de Productos -->
+            <section class="productos-section">
+                <h2>Productos Disponibles</h2>
+                <div class="productos-grid" id="productos-container">
+                    <p>Cargando productos...</p>
+                </div>
+            </section>
+
+            <!-- Sección de Carrito -->
+            <section class="carrito-section">
+                <h2>🛒 Tu Carrito</h2>
+                <div class="carrito-content">
+                    <div class="carrito-items" id="carrito-container">
+                        <p class="empty-cart">El carrito está vacío</p>
+                    </div>
+                    <div class="carrito-resumen">
+                        <h3>Resumen</h3>
+                        <div class="total-section">
+                            <span>Total:</span>
+                            <span class="total-price" id="total-price">$0</span>
+                        </div>
+                        <button class="btn-checkout" id="btn-checkout" disabled>
+                            Proceder a Compra
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 TangoNat. Todos los derechos reservados. Parcial PWEB2 Mayo2026. Alumno: Maria Natalia Mascarini</p>
+        </footer>
+    </div>
+
+    <script src="js/carrito-script.js"></script>
+</body>
+</html>
