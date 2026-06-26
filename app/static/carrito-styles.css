@@ -1,22 +1,50 @@
+/**
+ * ESTILOS DEL CARRITO DE COMPRAS
+ * ==============================
+ * 
+ * Archivo: carrito-styles.css
+ * 
+ * Descripción:
+ * Define todos los estilos CSS para la interfaz del carrito de compras.
+ * 
+ * Estructura:
+ * - Reset de estilos por defecto del navegador
+ * - Estilos del body (fondo, tipografía)
+ * - Grid layout (2 columnas: productos | carrito)
+ * - Estilos de tarjetas de productos
+ * - Estilos del carrito y botones
+ * - Media queries para responsive design
+ */
+
+/* ============================================================
+   RESET DE ESTILOS POR DEFECTO
+   ============================================================ */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;      /* Elimina márgenes por defecto */
+    padding: 0;     /* Elimina padding por defecto */
+    box-sizing: border-box;  /* Incluye padding/border en el tamaño total */
 }
 
+/* ============================================================
+   ESTILOS DEL BODY Y PÁGINA
+   ============================================================ */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Gradiente de fondo (púrpura a violeta) */
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+    min-height: 100vh;  /* Al menos la altura del viewport */
     padding: 20px;
 }
 
+/* ============================================================
+   CONTENEDOR PRINCIPAL
+   ============================================================ */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 1200px;      /* Ancho máximo */
+    margin: 0 auto;         /* Centrar horizontalmente */
+    background: white;      /* Fondo blanco */
+    border-radius: 15px;    /* Esquinas redondeadas */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);  /* Sombra */
     overflow: hidden;
 }
 
@@ -227,6 +255,26 @@ header h1 {
 .btn-eliminar:hover {
     background: #ff5252;
     transform: scale(1.05);
+}
+
+.btn-vaciar {
+    width: 100%;
+    padding: 12px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-vaciar:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
 }
 
 .carrito-resumen {

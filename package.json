@@ -1,0 +1,14 @@
+{
+  "name": "soporte-tango-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cypress E2E tests for the SoporteTango Flask application",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^12.17.0"
+  }
+}

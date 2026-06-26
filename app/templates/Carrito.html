@@ -1,53 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- ============================================================
+         METADATOS Y CONFIGURACIÓN
+         ============================================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TangoNat - Carrito de Cursos</title>
+    
+    <!-- 
+        Importar CSS personalizado desde carpeta 'static'
+        url_for() es una función Flask que genera URLs correctas automáticamente
+    -->
     <link rel="stylesheet" href="{{ url_for('static', filename='carrito-styles.css') }}">
 </head>
 <body>
+    <!-- Contenedor principal de la aplicación -->
     <div class="container">
+        
+        <!-- ============================================================
+             HEADER - ENCABEZADO
+             ============================================================ -->
         <header>
-            <h1>🎓 TangoNat - Cursos de Tango Gestión y Sueldos</h1>
+            <h1>🎓 TangoNat - Cursos de Tango 🎓 Gestión y Sueldos</h1>
             <p class="subtitle">Selecciona los cursos que deseas adquirir</p>
         </header>
 
+        <!-- ============================================================
+             CONTENIDO PRINCIPAL
+             ============================================================ -->
         <div class="main-content">
-            <!-- Sección de Productos -->
+            
+            <!-- ============================================================
+                 SECCIÓN 1: PRODUCTOS DISPONIBLES (Lado izquierdo)
+                 ============================================================ -->
             <section class="productos-section">
                 <h2>Productos Disponibles</h2>
+                <!-- 
+                    Este div se llena dinámicamente con JavaScript
+                    - ID importante: se usa en carrito-script.js
+                    - Cada producto es una tarjeta con nombre, descripción, precio, etc.
+                -->
                 <div class="productos-grid" id="productos-container">
                     <p>Cargando productos...</p>
                 </div>
             </section>
 
-            <!-- Sección de Carrito -->
+            <!-- ============================================================
+                 SECCIÓN 2: CARRITO Y RESUMEN (Lado derecho)
+                 ============================================================ -->
             <section class="carrito-section">
                 <h2>🛒 Tu Carrito</h2>
                 <div class="carrito-content">
+                    
+                    <!-- 
+                        Contenedor de items del carrito
+                        Se llena dinámicamente con JavaScript
+                        - Muestra cada producto agregado con cantidad y subtotal
+                    -->
                     <div class="carrito-items" id="carrito-container">
                         <p class="empty-cart">El carrito está vacío</p>
                     </div>
+
+                    <!-- Resumen y botones de acción -->
                     <div class="carrito-resumen">
                         <h3>Resumen</h3>
+                        
+                        <!-- Mostrar total de la compra -->
                         <div class="total-section">
                             <span>Total:</span>
+                            <!-- El total se actualiza dinámicamente con JavaScript -->
                             <span class="total-price" id="total-price">$0</span>
                         </div>
+                        
+                        <!-- 
+                            Botón "Proceder a Compra"
+                            - Se desactiva cuando el carrito está vacío
+                            - Evento: listener en carrito-script.js
+                        -->
                         <button class="btn-checkout" id="btn-checkout" disabled>
                             Proceder a Compra
+                        </button>
+                        
+                        <!-- 
+                            Botón "Vaciar Carrito" (NUEVA FUNCIONALIDAD)
+                            - Elimina TODOS los items del carrito
+                            - Pide confirmación antes de ejecutar
+                            - Llama a vaciarCarrito() en carrito-script.js
+                        -->
+                        <button class="btn-vaciar" id="btn-vaciar" onclick="vaciarCarrito()">
+                            Vaciar Carrito
                         </button>
                     </div>
                 </div>
             </section>
         </div>
 
+        <!-- ============================================================
+             FOOTER - PIE DE PÁGINA
+             ============================================================ -->
         <footer>
-            <p>&copy; 2026 TangoNat. Todos los derechos reservados. Parcial PWEB2 Mayo2026. Alumno: Maria Natalia Mascarini</p>
+            <!-- Información de copyright y autor -->
+            <p>&copy; 2026 TangoNat. Todos los derechos reservados. Parcial PWEB2 Junio 2026. Alumno: Maria Natalia Mascarini</p>
+            <!-- 
+                Link al repositorio de GitHub
+                - target="_blank": abre en nueva pestaña
+                - rel="noopener": medida de seguridad
+            -->
+            <a href="https://github.com/Lunitzenn/SoporteTango" target="_blank" rel="noopener" style="display:inline-block; margin-top:10px; padding:10px 16px; background:#24292f; color:#fff; border-radius:6px; text-decoration:none; font-weight:600;">Ver repositorio en GitHub</a>
         </footer>
     </div>
 
+    <!-- ============================================================
+         SCRIPTS - ARCHIVOS JAVASCRIPT
+         ============================================================ -->
+    
+    <!-- 
+        Script principal que controla toda la lógica del carrito
+        - Cargar productos de la API
+        - Agregar/eliminar productos
+        - Actualizar totales
+        - Interfaz de usuario (mostrar/ocultar elementos)
+        
+        url_for() genera la URL correcta automáticamente
+    -->
     <script src="{{ url_for('static', filename='carrito-script.js') }}"></script>
 </body>
 </html>

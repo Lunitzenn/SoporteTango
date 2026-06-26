@@ -1,59 +1,145 @@
-<header>
+# SoporteTango - Proyecto PWEB2
 
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
+Sitio Github en vista web (sin carrito funcional por limitaciones de Github):
+https://lunitzenn.github.io/SoporteTango/contact.html
 
-# GitHub Pages
 
-_Create a site or blog from your GitHub repositories with GitHub Pages._
+Repositorio Github: https://github.com/Lunitzenn/SoporteTango
 
-</header>
 
-<!--
-  <<< Author notes: Step 2 >>>
-  Start this step by acknowledging the previous step.
-  Define terms and link to docs.github.com.
-  Historic note: previous version checked for empty pull request, changed to the correct theme `minima`.
--->
+**Carrito de compras para cursos de Tango con backend RESTful, frontend estático y pruebas completas.**
 
-## Step 2: Configure your site
-
-_You turned on GitHub Pages! :tada:_
-
-We'll work in a branch, `my-pages`, that I created for you to get this site looking great. :sparkle:
-
-Jekyll uses a file titled `_config.yml` to store settings for your site, your theme, and reusable content like your site title and GitHub handle. You can check out the `_config.yml` file on the **Code** tab of your repository.
-
-We need to use a blog-ready theme. For this activity, we will use a theme named "minima".
-
-### :keyboard: Activity: Configure your site
-
-1. Browse to the `_config.yml` file in the `my-pages` branch.
-1. In the upper right corner, open the file editor.
-1. Add a `theme:` set to **minima** so it shows in the `_config.yml` file as below:
-   ```yml
-   theme: minima
-   ```
-1. (optional) You can modify the other configuration variables such as `title:`, `author:`, and `description:` to further customize your site.
-1. Commit your changes.
-1. (optional) Create a pull request to view all the changes you'll make throughout this course. Click the **Pull Requests** tab, click **New pull request**, set `base: main` and `compare:my-pages`.
-1. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
-
-<footer>
-
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+Este proyecto implementa una aplicación que permite seleccionar cursos, agregarlos al carrito, eliminar productos y calcular el total de la compra utilizando una API RESTful en Flask y PostgreSQL para persistencia.
 
 ---
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+## Descripción del Proyecto
 
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+SoporteTango es una aplicación diseñada para gestionar cursos de Tango a través de un carrito de compras. El flujo principal incluye:
 
-</footer>
+- Listar cursos disponibles
+- Agregar cursos al carrito
+- Eliminar cursos del carrito
+- Calcular el total de la compra
+- Mantener un carrito único por visitante usando cookie/sesión
+- Almacenar la información en PostgreSQL
+- Ejecutar pruebas unitarias con pytest
+- Ejecutar pruebas E2E con Cypress
+
+El proyecto no usa inicio de sesión; cada visitante tiene un carrito independiente asociado a su sesión.
+
+---
+
+## Tecnologías utilizadas
+
+- Python 3.14
+- Flask
+- Flask-RESTX
+- Flask-CORS
+- Flask-SQLAlchemy
+- python-dotenv
+- psycopg2-binary
+- PostgreSQL
+- JavaScript Vanilla
+- Bootstrap / CSS estático
+- pytest para pruebas unitarias
+- Cypress para pruebas E2E
+- npm / Node.js para ejecutar Cypress
+
+---------------------------------------------------------------------------------
+
+## Estructura del Proyecto
+
+```bash
+SoporteTango-main/
+├── app/
+│   ├── __init__.py           # Fábrica de Flask y registro de blueprint
+│   ├── config.py             # Configuración de PostgreSQL y Flask
+│   ├── models.py             # Modelos Producto, Cart y CartItem
+│   ├── routes.py             # Endpoints de la API REST
+│   ├── static/               # Archivos JavaScript y CSS del carrito
+│   │   ├── carrito-script.js
+│   │   └── carrito-styles.css
+│   └── templates/            # Plantilla del carrito
+│       └── Carrito.html
+├── cypress/                  # Pruebas E2E con Cypress
+│   ├── e2e/
+│   │   └── cart_flow.cy.js
+│   └── support/
+│       ├── commands.js
+│       └── e2.js
+├── tests/                    # Pruebas unitarias con pytest
+│   ├── conftest.py
+│   ├── test_api.py
+│   └── test_routes.py
+├── tools/                    # Scripts de prueba y utilidades
+│   ├── test_api.py
+│   └── test_cart_actions.py
+├── package.json              # Configuración de Cypress y npm
+├── cypress.config.js         # Configuración de Cypress
+├── pytest.ini                # Configuración de pytest
+├── requirements.txt          # Dependencias Python
+├── .env                      # Variables de entorno para PostgreSQL
+└── run.py                    # Punto de entrada de la aplicación
+```
+
+------------------------------------------------------------------------------
+
+## Instalación y ejecución
+
+1. Instalar dependencias Python:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Configurar el archivo `.env` con los datos de PostgreSQL:
+   - `POSTGRES_USER`
+   - `POSTGRES_PASSWORD`
+   - `POSTGRES_HOST`
+   - `POSTGRES_PORT`
+   - `POSTGRES_DB`
+3. Ejecutar la aplicación:
+   
+   python run.py
+   
+4. Abrir en el navegador:
+   
+   http://localhost:5000/carrito
+
+
+---
+
+## Pruebas
+
+### Unitarias
+
+Ejecutar:
+```bash
+pytest
+```
+
+### E2E con Cypress
+
+1. Instalar dependencias npm:
+   ```bash
+   npm install
+   ```
+2. Ejecutar Cypress en modo abierto:
+   ```bash
+   npm run cy:open
+   ```
+3. Ejecutar Cypress en modo headless:
+   ```bash
+   npm run cy:run
+   ```
+
+---
+
+## Resumen del estado del proyecto
+
+El proyecto está compuesto por un backend Flask que expone una API REST bajo `/api`, un frontend estático que consume dicha API y una base de datos PostgreSQL que persiste productos y carritos. El carrito se genera sin login y se conserva por visitante mediante sesión. Se agregaron pruebas unitarias y E2E para cubrir el flujo de compra completo.
+
+---
+
+## Enlaces importantes
+
+- Repositorio GitHub: https://github.com/Lunitzenn/SoporteTango
