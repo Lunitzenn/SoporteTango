@@ -178,7 +178,7 @@ class CarritoResource(Resource):
         cantidad = data.get('cantidad', 1)  # Default 1 si no se especifica
 
         # Validar que el producto existe en la BD
-        producto = Producto.query.get(producto_id)
+        producto = db.session.get(Producto, producto_id)
         if not producto:
             # Devolver error 404 si el producto no existe
             return {"error": "Producto no encontrado"}, 404
