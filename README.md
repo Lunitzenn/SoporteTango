@@ -87,24 +87,29 @@ SoporteTango-main/
 
 ## Instalación y ejecución
 
-1. Instalar dependencias Python:
-   ```bash
+1. Crear y activar un entorno virtual:
+   ```powershell
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   ```
+2. Instalar dependencias Python:
+   ```powershell
    pip install -r requirements.txt
    ```
-2. Configurar el archivo `.env` con los datos de PostgreSQL:
+3. Configurar el archivo `.env` con los datos de PostgreSQL:
    - `POSTGRES_USER`
    - `POSTGRES_PASSWORD`
    - `POSTGRES_HOST`
    - `POSTGRES_PORT`
    - `POSTGRES_DB`
-3. Ejecutar la aplicación:
-   
+4. Ejecutar la aplicación:
+   ```powershell
    python run.py
-   
-4. Abrir en el navegador:
-   
+   ```
+5. Abrir en el navegador:
+   ```text
    http://localhost:5000/carrito
-
+   ```
 
 ---
 
@@ -112,9 +117,20 @@ SoporteTango-main/
 
 ### Unitarias
 
-Ejecutar:
-```bash
+Puedes ejecutarlas con cualquiera de estas opciones:
+
+```powershell
 pytest
+```
+
+```powershell
+python -m pytest
+```
+
+En Windows, también puedes usar el script preparado:
+
+```powershell
+./run-tests.ps1
 ```
 
 ### E2E con Cypress
